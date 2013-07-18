@@ -1,0 +1,14 @@
+"Use space in normal mode to insert spaces. Shift-space to insert before cursor.
+nnoremap <Space> a<Space><Esc>h
+nnoremap <S-Space> i<Space><Esc>l
+nnoremap <S-Del> a<Del><Esc>
+nnoremap <Backspace> i<Backspace><Esc>l
+
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+nnoremap <S-C-k> <PageUp>
+nnoremap <S-C-j> <PageDown>
