@@ -1,0 +1,5 @@
+Scripts
+
+While Vimperator offers already lots of cool features, we cannot and don't want to include every feature directly in the core. Therefore you can enhance the Vimperator experience by adding plugins (even more unofficial plugins here) which add new commands or mappings. Install these plugins by copying them to the ~/.vimperator/plugin/ directory (or %HOME%\vimperator\plugin on Windows) unless noted differently. If you have written a cool plugin which is useful to a wider audience, please submit it.
+
+If you don't care about features but just use Vimperator for the sexy looks, you can also theme that by using color schemes. You can install them by copying them to the ~/.vimperator/colors/ directory (%HOME%\vimperator\colors on Windows) and use it with :colorscheme <name>. You can also submit your own color scheme . 
