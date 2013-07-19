@@ -44,9 +44,7 @@ vmap <silent> <C-g> y<Esc><Esc>P
 nnoremap <silent> gh :nohlsearch<CR>
 
 " hint charanters
-" set hintchars=HSADFJKLEWCMPG
-set hintchars=tnsethriao
-" set hintchars=hjklasdfgyuiopqwertnmzxcvb
+set hintchars=tnsedhriao
 
 colorscheme vimPgray
 
@@ -63,8 +61,8 @@ set showstatuslinks=2
 set newtab=help,addons,extoptions,downloads
 
 " Beep??
-set visualbell
-hi Bell opacity: .3;
+"set visualbell
+"hi Bell opacity: .3;
 
 " QMarks {{{1
 silent qmark g https://github.com/
