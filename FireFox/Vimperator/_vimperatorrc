@@ -68,3 +68,12 @@ set newtab=help,addons,extoptions,downloads
 silent qmark g https://github.com/
 silent qmark n http://www.vg.no, http://www.reddit.com, http://www.tek.no, http://www.theverge.com
 
+
+" Clear special hint filters for everything else
+autocmd LocationChange '.*' :set hinttags&
+" Restrict link hints in Google search result list
+autocmd LocationChange 'www.google.com' :set hinttags='//h3[@class="r"]/a'
+" Hacker news
+autocmd LocationChange 'news.ycombinator.com' :set hinttags='//td[@class="title"]/a'
+" Reddit
+autocmd LocationChange 'www.reddit.com' :set hinttags='//p[@class="title"]/a | //div[contains(@class, "expando-button")]'
