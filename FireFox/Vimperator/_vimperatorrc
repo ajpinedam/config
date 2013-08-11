@@ -76,4 +76,4 @@ autocmd LocationChange 'www.google.com' :set hinttags='//h3[@class="r"]/a'
 " Hacker news
 autocmd LocationChange 'news.ycombinator.com' :set hinttags='//td[@class="title"]/a'
 " Reddit
-autocmd LocationChange 'www.reddit.com' :set hinttags='//p[@class="title"]/a | //li[@class="first"]/a[@class="comments"] | //div[@class="md"]/p/a | //div[@aria-label="upvote"]'
+autocmd LocationChange 'www.reddit.com' :set hinttags='//p[@class="title"]/a | //li[@class="first"]/a[@class="comments"] | //div[@class="md"]/p/a | //p[@class="nextprev"]/a | //div[@aria-label="upvote"]'
