@@ -1,0 +1,35 @@
+Style for id span
+
+font-family:arial, sans-serif; font-size:xx-small; line-height:130%;
+border-radius:4px;
+vertical-align:center;
+margin-left:2px;
+max-width:20px; max-height:10px;
+overflow:visible;float:none;
+color: #FFFFFF !important;
+background-image: none;
+padding: 4px 6px;
+z-index: 991;
+color: #FFFFFF;
+font-weight: bold;
+display: block;
+background-color: rgba(45,45,45,0.6);
+position:absolute;
+
+Style for frame id span:
+
+font-family:arial, sans-serif; font-size:xx-small; line-height:130%;
+border-radius:4px;
+vertical-align:center;
+margin-left:2px;
+max-width:20px; max-height:10px;
+overflow:visible;float:none;
+color: #FFFFFF !important;
+background-image: none;
+padding: 4px 6px;
+z-index: 991;
+color: #FFFFFF;
+font-weight: bold;
+display: block;
+background-color: rgba(150,150,150,0.6);
+position:absolute;
