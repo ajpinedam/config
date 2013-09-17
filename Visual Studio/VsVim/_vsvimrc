@@ -16,11 +16,10 @@ nnoremap <S-C-j> <PageDown>
 " Use <gp> to select the recently pasted text, for indenting or formatting it. Will re-enter the previous visual mode, either characterwise (v) or linewise (V).
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" delete without yanking
+" delete without yanking using \d instead of d
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
 " replace currently selected text with default register
 " without yanking it
-"vnoremap <leader>p "_dP
 vnoremap p "_dP
