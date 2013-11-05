@@ -1,5 +1,4 @@
 [credential]
-[credential]
 	helper = !'C:\\Users\\Andreas\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
 [alias]
 	st = status
