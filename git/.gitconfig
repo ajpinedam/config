@@ -1,3 +1,6 @@
+[user]
+	name = Andreas Gullberg Larsen
+	email = anjdreas@gmail.com
 [credential]
 	helper = !'C:\\Users\\Andreas\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
 [alias]
