@@ -1,0 +1,9 @@
+[credential]
+[credential]
+	helper = !'C:\\Users\\Andreas\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	cim = "!sh -c 'git commit -am \"$1\"' -"
+	cia = "!sh -c 'git commit -ae' -"
