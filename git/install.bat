@@ -42,6 +42,14 @@ cd %~dp0
 set dest="%userprofile%\.gitconfig"
 set src="%CD%\.gitconfig"
 echo "Creating backup of .gitconfig"
+del %dest%_backup
+move %dest% %dest%_backup
+mklink %dest% %src%
+
+set dest="%userprofile%\.profile"
+set src="%CD%\.profile"
+echo "Creating backup of .profile"
+del %dest%_backup
 move %dest% %dest%_backup
 mklink %dest% %src%
 
