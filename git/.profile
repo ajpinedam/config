@@ -8,6 +8,7 @@ alias gpu='git push'
 alias gad='git add -A'
 alias gmt='git mergetool'
 alias bdf='git diff'
+alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
 alias master='git checkout master'
 alias cdroot='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
