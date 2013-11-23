@@ -23,3 +23,5 @@ vnoremap <leader>d "_d
 " replace currently selected text with default register
 " without yanking it
 vnoremap p "_dP
+
+set ts=4 sts=4 sw=4 expandtab
