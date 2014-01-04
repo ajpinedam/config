@@ -35,7 +35,7 @@ alias ip1="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias ip2="curl -s http://www.showmyip.com/simple/ | awk '{print $1}'"
 
 # grep with color
-alias grep='grep --color=auto'
+#alias grep='grep --color=auto'
 
 # proxy tunnel
 #alias proxy='ssh -D XXXX -p XXXX USER@DOMAIN'
