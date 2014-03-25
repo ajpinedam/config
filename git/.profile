@@ -33,8 +33,16 @@ alias ip="curl -s http://wtfismyip.com/text | awk '{print $1}'"
 # refresh shell
 alias reload='source ~/.profile'
 
+# TAB completion for aliases
+__git_complete gco _git_checkout
+__git_complete gbr _git_branch
+__git_complete grb _git_rebase
+__git_complete gpu _git_push
+__git_complete gpl _git_pull
+
 # Load git flow TAB completion
 source ~/git-flow-completion.bash
+
 
 ###############################
 ### ENVIRONMENTAL VARIABLES ###
