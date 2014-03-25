@@ -1,19 +1,28 @@
+# Git Flow aliases (https://github.com/nvie/gitflow)
+alias gff='git flow feature'
+alias gfr='git flow release'
+alias gfh='git flow hotfix'
+alias gfs='git flow support'
+
 alias gst='git status'
 alias gco='git checkout'
-alias gci="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:commit /path:$(git rev-parse --show-toplevel)" #'git commit'
+alias gci="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:commit #/filepath:$(git rev-parse --show-toplevel)" #'git commit'
 alias grb='git rebase'
 alias gbr='git branch'
 alias gpl='git pull'
 alias gpu='git push'
 alias gad='git add -A'
 alias gmt='git mergetool'
-alias bdf='git diff'
 alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
-alias master='git checkout master'
 alias cdroot='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
 alias glg1='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+
+# Switch between main branches
+alias master='git checkout master'
+alias stable='git checkout stable'
+alias develop='git checkout develop'
 
 # ls alias for color-mode
 alias ls='ls -lhaG --color'
