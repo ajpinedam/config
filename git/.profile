@@ -58,3 +58,6 @@ export PATH=$PATH:/Users/Andreas/bin    # May be redundant; check ~/.bash_profil
 # Change prompt
 PS1_OLD=${PS1}
 export PS1='\[\033[1;34m\]\!\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]:\[\033[1;35m\]\W\[\033[0m\] \[\033[1;92m\]$(__git_ps1 "(%s)")\[\033[0m\]$ '
+
+# Load git flow TAB completion
+source ~/git-flow-completion.bash
