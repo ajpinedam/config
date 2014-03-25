@@ -37,20 +37,37 @@ setlocal & pushd .
 REM Run shell as admin (example) - put here code as you like
 cd %~dp0
 
-@echo on
+@echo off
 
 set dest="%userprofile%\.gitconfig"
 set src="%CD%\.gitconfig"
-echo "Creating backup of .gitconfig"
-del %dest%_backup
-move %dest% %dest%_backup
+if exist %dest% (
+	echo Creating backup of %dest%.
+	del %dest%_backup
+	move %dest% %dest%_backup
+	)
+echo Creating symlink for %dest%.
 mklink %dest% %src%
 
 set dest="%userprofile%\.profile"
 set src="%CD%\.profile"
-echo "Creating backup of .profile"
-del %dest%_backup
-move %dest% %dest%_backup
+if exist %dest% (
+	echo Creating backup of %dest%.
+	del %dest%_backup
+	move %dest% %dest%_backup
+	)
+echo Creating symlink for %dest%.
+mklink %dest% %src%
+
+mkdir "%userprofile%\bin\" 2>NUL
+set dest="%userprofile%\bin\mvbranch.sh"
+set src="%CD%\bin\mvbranch.sh"
+if exist %dest% (
+	echo Creating backup of %dest%.
+	del %dest%_backup
+	move %dest% %dest%_backup
+	)
+echo Creating symlink for %dest%.
 mklink %dest% %src%
 
 pause
