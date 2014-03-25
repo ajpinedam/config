@@ -72,7 +72,7 @@ silent qmark n http://www.vg.no, http://www.reddit.com, http://www.tek.no, http:
 " Clear special hint filters for everything else
 autocmd LocationChange '.*' :set hinttags& 
 autocmd LocationChange '.*' js modes.passAllKeys = false
-autocmd LocationChange 'youtrack' js modes.passAllKeys = true
+autocmd LocationChange 'YouTrack' js modes.passAllKeys = true
 
 " Restrict link hints in Google search result list
 autocmd LocationChange 'www.google.com' :set hinttags='//h3[@class="r"]/a'
