@@ -43,6 +43,10 @@ __git_complete gpl _git_pull
 # Load git flow TAB completion
 source ~/git-flow-completion.bash
 
+# TAB completion options
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set completion-map-case on # insensitivity between hyphens and underscores
 
 ###############################
 ### ENVIRONMENTAL VARIABLES ###
