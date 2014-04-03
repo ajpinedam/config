@@ -16,8 +16,11 @@ alias gmt='git mergetool'
 alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
 alias cdroot='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
-alias glg1='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
-alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+alias glg1='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias glg2='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
+alias gcp='git cherry-pick'
+alias backport='git cherry-pick -x'
+alias prev='git checkout -'
 
 # Switch between main branches
 alias master='git checkout master'
@@ -48,6 +51,8 @@ __git_complete gbr _git_branch
 __git_complete grb _git_rebase
 __git_complete gpu _git_push
 __git_complete gpl _git_pull
+__git_complete gcp _git_cherry_pick
+__git_complete backport _git_cherry_pick
 
 # Load git flow TAB completion
 source ~/git-flow-completion.bash
