@@ -3,22 +3,6 @@
 	email = anjdreas@gmail.com
 [credential]
 	helper = !'C:\\Users\\Andreas\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
-[alias]
-st = status
-co = checkout
-ci = commit
-cim = "!sh -c 'git commit -am \"$1\"' -"
-cia = "!sh -c 'git commit -ae' -"
-rb = rebase
-br = branch
-pl = pull
-pu = push
-ad = add
-mt = mergetool
-df = diff
-lg = log --graph --name-status --oneline
-
-
 [diff]
   tool = tortoisediff
 [difftool]
