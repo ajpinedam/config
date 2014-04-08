@@ -15,4 +15,7 @@ vnoremap <leader>d "_d
 " without yanking it
 vnoremap p "_dP
 
-set ts=4 sts=4 sw=4 expandtab
+set ts=4 sw=4 expandtab
+
+" backspace and cursor keys wrap to previous/next line
+set backspace=indent,eol,start
