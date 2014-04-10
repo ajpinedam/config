@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #
-# A Git pre-commit hook that checks for syntax errors
-# for: Ruby, JavaScript, Python, Bash, and (Cake)PHP
-# based on the extensions of staged files in Git.
+# A Git pre-commit hook that checks for certain illegal words.
 # Can be 'installed globally' as of Git 1.7.1 using init.templatedir
 #
-# Copyright 2013, kvz (http://twitter.com/kvz)
+# Copyright 2014, Andreas Gullberg Larsen (anjdreas@gmail.com)
+#
+# Inspired by:
+# https://github.com/kvz/dotfiles/blob/master/.gittemplate/hooks/pre-commit
 #
 # Some common caveats have been taken care of:
 # - Works with files that contain spaces
@@ -13,17 +14,11 @@
 # - Will skip files that are about to be deleted
 # - Uses file as staged in git, not how it currently is in your working dir
 #
-# Focussed on not committing syntax errors to repositories
-# and should not have strong opinions on coding style, though
-# could be modified to have them.
-#
-# Some language checks are very basic still. I'm welcoming improvements on
-# https://github.com/kvz/dotfiles/blob/master/.gittemplate/hooks/pre-commit
 #
 # To install standalone (without the spaceship that is my dotfiles/install.sh)
 # type:
 # $ mkdir -p ~/.gittemplate/hooks
-# $ curl https://raw.github.com/kvz/dotfiles/master/.gittemplate/hooks/pre-commit -ko ~/.gittemplate/hooks/pre-commit && chmod 755 $_
+# $ Add this file to the same folder
 # $ git config --global init.templatedir '~/.gittemplate'
 #
 # Now in new (or existing) repos, type
@@ -34,10 +29,6 @@
 #
 # This will copy any non-existing files in ~/.gittemplate into your
 # new/current repo's .git dir. This only works from git 1.7.1 and up
-#
-# Warnings
-# - Assumes BASH in case of *.sh files. If you are into Dash you
-# should change that
 #
 # Tip
 # - If you ever want to check in code and disable the pre-commit one time:
@@ -52,43 +43,6 @@
 against="4b825dc642cb6eb9a060e54bf8d69288fbee4904"
 git rev-parse --verify HEAD >/dev/null 2>&1 && against="HEAD"
 
-RESTORE='\033[0m'
-
-RED='\033[00;31m'
-GREEN='\033[00;32m'
-YELLOW='\033[00;33m'
-BLUE='\033[00;34m'
-PURPLE='\033[00;35m'
-CYAN='\033[00;36m'
-LIGHTGRAY='\033[00;37m'
-
-LRED='\033[01;31m'
-LGREEN='\033[01;32m'
-LYELLOW='\033[01;33m'
-LBLUE='\033[01;34m'
-LPURPLE='\033[01;35m'
-LCYAN='\033[01;36m'
-WHITE='\033[01;37m'
-                             #+ without clearing screen.
-
-
-cecho ()                     # Color-echo.
-                             # Argument $1 = message
-                             # Argument $2 = color
-{
-local default_msg="No message passed."
-                             # Doesn't really need to be a local variable.
-
-message=${1:-$default_msg}   # Defaults to default message.
-color=${2:-$black}           # Defaults to black, if not specified.
-
-  echo -e "$color"
-  echo "$message"
-  echo -e $RESTORE                      # Reset to normal.
-
-  return
-}  
-
 function hasExpression() {
 	if git diff --staged | grep -iq $1
 	then		
@@ -97,7 +51,6 @@ function hasExpression() {
 	fi
 	return 0
 }
-
 
 #set the IFS (Internal Field Separator) variable so that it splits fields by tab and newline and don't threat space as a filed separator.
 IFS=$'\t\n'
