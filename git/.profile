@@ -14,7 +14,7 @@ alias gpu='git push'
 alias gad='git add -A'
 alias gmt='git mergetool'
 alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
-alias cdroot='cd "$(git rev-parse --show-toplevel)"'
+alias root='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
 alias glg1='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias glg2='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
