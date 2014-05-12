@@ -19,6 +19,7 @@ alias root='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
 alias gls='git log --color --graph --pretty=format:"%C(green)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(cyan)(%cr) %C(yellow)<%an>%C(reset)" --abbrev-commit'
 alias gla='git log --color --graph --all --date-order --pretty=format:"%C(green)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(cyan)(%cr) %C(yellow)<%an>%C(reset)" --abbrev-commit'
+alias glt='git tag -n5'
 alias gcp='git cherry-pick'
 alias backport='git cherry-pick -x'
 alias prev='git checkout -'
