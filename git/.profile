@@ -8,6 +8,7 @@ alias gst='git status'
 alias gco='git checkout'
 alias gci="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:commit #/filepath:$(git rev-parse --show-toplevel)" #'git commit'
 alias gcia='git commit --amend'
+alias gcm=commitWithMessage
 alias grb='git rebase'
 alias gbr='git branch'
 alias gpl='git pull'
@@ -23,6 +24,7 @@ alias glt='git tag -n5'
 alias gcp='git cherry-pick'
 alias backport='git cherry-pick -x'
 alias prev='git checkout -'
+alias gru='git remote update -p'
 
 # Switch between main branches
 alias master='git checkout master'
@@ -48,6 +50,9 @@ alias ip="curl -s http://wtfismyip.com/text | awk '{print $1}'"
 alias reload='source ~/.profile'
 
 # External tools
+commitWithMessage() {
+    git commit -m "$1"
+}
 launchGrepwin() {
 	searchfor=$1
 	filemask=$2
