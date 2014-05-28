@@ -1,0 +1,9 @@
+Copy this to Settings - Integration - ConEmu Here - Explorer context menu integration:
+
+Command: 
+/single /cmd {Git bash}
+
+Icon file: 
+C:\Program Files (x86)\Git\etc\git.ico
+
+Remember to click 'Register' for it to take effect.
