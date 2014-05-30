@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# Runs at the end of git flow feature finish
+#
+# Positional arguments:
+# $1    The friendly name of the branch
+# $2    The origin remote
+# $3    The full branch name (including the feature prefix)
+#
+# The following variables are available as they are exported by git-flow:
+#
+# MASTER_BRANCH - The branch defined as Master
+# DEVELOP_BRANCH - The branch defined as Develop
+#
+NAME=$1
+ORIGIN=$2
+BRANCH=$3
+
+# Implement your script here.
+
+# Delete remote branch
+# Allows us to read user input below, assigns stdin to keyboard
+exec < /dev/tty
+
+while true; do
+  read -p "[post-flow-feature-finish] Delete remote branch? (Y/n) " yn
+  if [ "$yn" = "" ]; then
+    yn='Y'    
+  fi
+  case $yn in
+      [Yy] ) 
+        echo -e "\e[31mDeleting remote branch: $2/$3.\e[0m" || exit "$?"
+        git push $2 :$3; 
+        break;;
+      [Nn] ) 
+        echo -e "\e[32mKeeping remote branch.\e[0m" || exit "$?"
+        break;;
+      * ) echo "Please answer y or n for yes or no.";;
+  esac
+done
+
+# Stop reading user input (close STDIN)
+exec <&-
+exit 0
