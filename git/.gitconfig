@@ -1,20 +1,31 @@
 [user]
-	name = Andreas Gullberg Larsen
-	email = anjdreas@gmail.com
-[credential]
-	helper = !'C:\\Users\\Andreas\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
+    name = Andreas Gullberg Larsen
+    email = anjdreas@gmail.com
 [diff]
-  tool = tortoisediff
+    tool = semanticdiff
 [difftool]
-  prompt = false
+    prompt = false
 [merge]
-  tool = tortoisemerge
+    tool = semanticmerge
 [mergetool]
-  prompt = false
-  keepBackup = false
+    prompt = false
+    keepBackup = false
 [difftool "tortoisediff"]
   cmd = \""c:/Program Files/TortoiseGIT/bin/TortoiseGitMerge.exe"\" -mine:"$REMOTE" -base:"$LOCAL"
 [mergetool "tortoisemerge"]
   cmd = \""c:/Program Files/TortoiseGIT/bin/TortoiseGitMerge.exe"\" -base:"$BASE" -theirs:"$REMOTE" -mine:"$LOCAL" -merged:"$MERGED"
+[difftool "semanticdiff"]
+    cmd = C:/Users/Andreas/AppData/Local/PlasticSCM4/semanticmerge/semanticmergetool.exe -s \"$LOCAL\" -d \"$REMOTE\"
+[mergetool "semanticmerge"]
+    cmd = C:/Users/Andreas/AppData/Local/PlasticSCM4/semanticmerge/semanticmergetool.exe -d \"$LOCAL\" -s \"$REMOTE\" -b \"$BASE\" -r \"$MERGED\"
+    trustExitCode = true
+[pull]
+  rebase = preserve
 [push]
   default = simple
+[branch]
+    autosetuprebase = always
+[init]
+    templatedir = ~/.git_template
+[credential]
+    helper = wincred
