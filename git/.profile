@@ -18,9 +18,11 @@ alias gmt='git mergetool'
 alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
 alias root='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
-alias gls='git log --color --graph --pretty=format:"%C(green)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(cyan)(%cr) %C(yellow)<%an>%C(reset)" --abbrev-commit'
-alias gla='git log --color --graph --all --date-order --pretty=format:"%C(green)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(cyan)(%cr) %C(yellow)<%an>%C(reset)" --abbrev-commit'
+alias gls='git log --color --decorate --graph --pretty=format:"%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%cr) %C(red)<%an>%C(reset)" --abbrev-commit'
+alias gla='git log --color --graph --all --date-order --pretty=format:"%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(cyan)<%an>%C(reset)" --abbrev-commit'
 alias glt='git tag -n5'
+alias glf=findCommitByMessage
+alias glfa=findCommitByMessageInAllBranches
 alias gcp='git cherry-pick'
 alias backport='git cherry-pick -x'
 alias prev='git checkout -'
@@ -50,19 +52,25 @@ alias ip="curl -s http://wtfismyip.com/text | awk '{print $1}'"
 alias reload='source ~/.profile'
 
 # External tools
+findCommitByMessage() {
+    git log -i --grep="$1"
+}
+findCommitByMessageInAllBranches() {
+    git log -i --all --grep="$1"
+}
 commitWithMessage() {
     git commit -m "$1"
 }
 launchGrepwin() {
-	searchfor=$1
-	filemask=$2
-	winpwd=$PWD
-	winpwd=${winpwd//\//\\}
-	winpwd=${winpwd/\\c\\/C:\\}
-	winpwd=${winpwd/\\usr\\/C:\\Program Files (x86)\\Git\\}
-	winpwd=${winpwd/\\/\\\\}
-	start sh -c "'C:\Program Files\grepWin\grepWin.exe' /execute /searchpath:'$winpwd' /searchfor:'$searchfor'"
-	# /filemask:'$filemask'"	
+    searchfor=$1
+    filemask=$2
+    winpwd=$PWD
+    winpwd=${winpwd//\//\\}
+    winpwd=${winpwd/\\c\\/C:\\}
+    winpwd=${winpwd/\\usr\\/C:\\Program Files (x86)\\Git\\}
+    winpwd=${winpwd/\\/\\\\}
+    start sh -c "'C:\Program Files\grepWin\grepWin.exe' /execute /searchpath:'$winpwd' /searchfor:'$searchfor'"
+    # /filemask:'$filemask'"    
 }
 alias grepwin=launchGrepwin
 
@@ -78,7 +86,8 @@ __git_complete gls _git_log
 __git_complete gla _git_log
 
 # Load git flow TAB completion
-source ~/git-flow-completion.bash
+# Loaded automatically from bash_completion.d folder 
+#source ~/git-flow-completion.bash
 
 # TAB completion options
 set show-all-if-ambiguous on
@@ -90,7 +99,10 @@ set completion-map-case on # insensitivity between hyphens and underscores
 ###############################
 
 # Add personal bin to PATH variable
-export PATH=$PATH:/Users/Andreas/bin    # May be redundant; check ~/.bash_profile, /etc/profile, /etc/paths, /etc/bashrc
+PATH=$PATH:/Users/Andreas/bin
+PATH=$PATH:"/c/Program Files/nodejs"
+PATH=$PATH:"/c/users/Andreas/AppData/Roaming/npm/node_modules/pullr/bin"
+export PATH
 
 # Change prompt
 PS1_OLD=${PS1}
