@@ -29,3 +29,6 @@
     templatedir = ~/.git_template
 [credential]
     helper = wincred
+[tgit]
+    logminsize = 5
+    logwidthmarker = 72
