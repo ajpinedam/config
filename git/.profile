@@ -8,6 +8,7 @@ alias gst='git status'
 alias gco='git checkout'
 alias gci="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:commit #/filepath:$(git rev-parse --show-toplevel)" #'git commit'
 alias gcia='git commit --amend'
+alias gcip='git commit -p' # Partial commit, stage hunks interactively
 alias gcm=commitWithMessage
 alias grb='git rebase'
 alias gbr='git branch'
@@ -27,6 +28,7 @@ alias gcp='git cherry-pick'
 alias backport='git cherry-pick -x'
 alias prev='git checkout -'
 alias gru='git remote update -p'
+alias gsu='git submodule update --init'
 
 # Switch between main branches
 alias master='git checkout master'
