@@ -17,7 +17,7 @@
 [difftool "semanticdiff"]
     cmd = C:/Users/Andreas/AppData/Local/PlasticSCM4/semanticmerge/semanticmergetool.exe -s \"$LOCAL\" -d \"$REMOTE\"
 [mergetool "semanticmerge"]
-    cmd = C:/Users/Andreas/AppData/Local/PlasticSCM4/semanticmerge/semanticmergetool.exe -d \"$LOCAL\" -s \"$REMOTE\" -b \"$BASE\" -r \"$MERGED\"
+    cmd = C:/Users/Andreas/AppData/Local/PlasticSCM4/semanticmerge/semanticmergetool.exe -d \"$LOCAL\" -s \"$REMOTE\" -b \"$BASE\" -r \"$MERGED\" -a
     trustExitCode = true
 [pull]
   rebase = preserve
