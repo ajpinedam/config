@@ -2,7 +2,7 @@
     name = Andreas Gullberg Larsen
     email = anjdreas@gmail.com
 [diff]
-    tool = semanticdiff
+    tool = tortoisediff
 [difftool]
     prompt = false
 [merge]
