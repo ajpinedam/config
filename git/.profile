@@ -30,6 +30,9 @@ alias prev='git checkout -'
 alias gru='git remote update -p'
 alias gsu='git submodule update --init'
 
+alias cont='git rebase --continue'
+alias skip='git rebase --skip'
+
 # Switch between main branches
 alias master='git checkout master'
 alias stable='git checkout stable'
