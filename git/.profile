@@ -60,6 +60,52 @@ alias ip="curl -s http://wtfismyip.com/text | awk '{print $1}'"
 alias reload='source ~/.profile'
 
 # External tools
+deploy() {
+    if [ $# -ne 2 ]
+      then
+        echo -e "\e[32mArgs: <source branch or commit> <deploy branch>\e[0m"
+        echo -e "\e[32mExamples: \e[0m"
+        echo -e "\e[32mdeploy 9ast83d stage\e[0m"
+        echo -e "\e[32mdeploy develop stage\e[0m"
+        echo -e "\e[32mdeploy master production\e[0m"        
+        echo -e "\e[31mNote: Will checkout deploy branch and hard reset it to source branch/commit\e[0m"
+        return
+    fi
+    
+    source=$1
+    deployBranch="deploy/$2"
+    echo -e "\e[32mDeploying [$source] to deploy branch [$deployBranch].\e[0m"
+    echo -e "\e[32mChecking out deploy/stage\e[0m"
+    git checkout deploy/stage
+    
+    
+        while true; do
+        read -p "Are you sure you want to reset [$deployBranch] branch to [$1] (Y/n): " yn
+        if [ "$yn" = "" ]; then
+            yn='Y'    
+        fi
+        case $yn in
+            [Yy] ) git reset --hard $source; break;;
+            [Nn] ) return;;
+            * ) echo "Please answer y or n for yes or no.";;
+        esac        
+    done    
+    
+    echo -e "\e[32mAdding empty commit to trigger deployment\e[0m"
+    git commit --allow-empty -m "Trigger deployment"
+    
+    while true; do
+        read -p "Push changes (will force push) [Y/n]: " yn
+        if [ "$yn" = "" ]; then
+            yn='Y'    
+        fi
+        case $yn in
+            [Yy] ) echo -e "\e[31mPushing changes\e[0m"; git push --force; break;;
+            [Nn] ) return;;
+            * ) echo "Please answer y or n for yes or no.";;
+        esac        
+    done
+}
 findCommitByMessage() {
     git log -i --grep="$1"
 }
