@@ -18,6 +18,7 @@ alias gad='git add -A'
 alias gmt='git mergetool'
 alias gmg='git merge'
 alias gmn='git merge --no-ff'
+alias grh='git reset --hard'
 alias grwd='git reset --hard && git clean -f -d' # removes staged/working directory changes and untracked files
 alias root='cd "$(git rev-parse --show-toplevel)"'
 alias glg="'C:/Program Files/TortoiseGit/bin/TortoiseGitProc.exe' /command:log /path:."
