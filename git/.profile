@@ -76,7 +76,7 @@ deploy() {
     deployBranch="deploy/$2"
     echo -e "\e[32mDeploying [$source] to deploy branch [$deployBranch].\e[0m"
     echo -e "\e[32mChecking out deploy/stage\e[0m"
-    git checkout deploy/stage
+    git checkout $deployBranch
     
     
         while true; do
@@ -91,8 +91,13 @@ deploy() {
         esac        
     done    
     
-    echo -e "\e[32mAdding empty commit to trigger deployment\e[0m"
-    git commit --allow-empty -m "Trigger deployment"
+    echo -e "\e[32mTouching version.txt file to trigger deployment\e[0m"
+    echo "" >> version.txt #Append newline to version file
+    git add version.txt
+    git commit -m "Touch version file to trigger deployment"
+    
+    #echo -e "\e[32mAdding empty commit to trigger deployment\e[0m"
+    #git commit --allow-empty -m "Trigger deployment"
     
     while true; do
         read -p "Push changes (will force push) [Y/n]: " yn
