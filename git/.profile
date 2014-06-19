@@ -35,6 +35,9 @@ alias gsu='git submodule update --init'
 
 alias cont='git rebase --continue'
 alias skip='git rebase --skip'
+alias in='git fetch && gls ..@{u}'
+alias out='git fetch && gls @{u}..'
+alias inout='git fetch && echo -e "INCOMING\n--------\n" && gls ..@{u} && echo -e "\nOUTGOING\n--------\n" && gls @{u}..'
 
 # Switch between main branches
 alias master='git checkout master'
